@@ -1,4 +1,4 @@
 [build]
-command = "yarn build:11ty"
+command = "pnpm build:11ty"
 publish = "_docs/"
 functions = "functions/"
