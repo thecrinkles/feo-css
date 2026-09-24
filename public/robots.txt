@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://feo.crinkles.dev/sitemap.xml

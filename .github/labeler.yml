@@ -1,5 +1,7 @@
 documentation:
-- any: ['docs/**/*']
+  - changed-files:
+      - any-glob-to-any-file: "docs/**/*"
 
 enhancement:
-- any: ['src/**/*']
+  - changed-files:
+      - any-glob-to-any-file: "src/**/*"

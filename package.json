@@ -1,10 +1,10 @@
 {
   "scripts": {
     "css:core": "lightningcss --bundle --minify --targets '> 1% and last 3 versions' src/feo.css -o feo.min.css",
-    "css:docs": "yarn css:core && copyfiles -f ./*.min.css public",
-    "build": "yarn css:core",
-    "start": "eleventy --serve & yarn css:docs & onchange 'src/**/*.css' -- yarn css:docs",
-    "build:11ty": "npx @11ty/eleventy && yarn css:docs",
+    "css:docs": "pnpm css:core && copyfiles -f ./*.min.css public",
+    "build": "pnpm css:core",
+    "start": "eleventy --serve & pnpm css:docs & onchange 'src/**/*.css' -- pnpm css:docs",
+    "build:11ty": "pnpm css:docs && eleventy",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
@@ -28,11 +28,12 @@
   },
   "homepage": "https://github.com/interruptd/feo-css#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.1",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.1",
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "copyfiles": "^2.4.1",
-    "lightningcss-cli": "^1.30.1",
+    "lightningcss-cli": "^1.33.0",
     "onchange": "^7.1.0",
-    "prettier": "^3.9.5"
-  }
+    "prettier": "^3.9.9"
+  },
+  "packageManager": "pnpm@12.6.0"
 }

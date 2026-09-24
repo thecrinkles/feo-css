@@ -1,0 +1,7 @@
+---
+permalink: search.json
+eleventyExcludeFromCollections: true
+eleventyImport:
+  collections: ["all"]
+---
+{{ collections.all | searchIndex | dump | safe }}

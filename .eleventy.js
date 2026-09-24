@@ -1,3 +1,4 @@
+import { RenderPlugin } from "@11ty/eleventy";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import * as filters from "./docs/_config/filters.js";
 import * as shortcodes from "./docs/_config/shortcodes.js";
@@ -6,6 +7,7 @@ import * as collections from "./docs/_config/collections.js";
 export default async function (config) {
   config.addPassthroughCopy({ "./public/": "/" });
   config.addPlugin(syntaxHighlight);
+  config.addPlugin(RenderPlugin); // renderContent: markdown twins run the njk in raw docs
 
   // filters
   Object.keys(filters).forEach((name) => {

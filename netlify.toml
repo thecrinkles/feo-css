@@ -1,4 +1,17 @@
 [build]
-command = "yarn build:11ty"
+command = "pnpm build:11ty"
 publish = "_docs/"
 functions = "functions/"
+
+# Markdown twins of every page (docs/markdown.njk, linked from llms.txt) are
+# full-text duplicates: crawlable on purpose for LLM agents, but out of the index.
+[[headers]]
+  for = "/*.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/*.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"

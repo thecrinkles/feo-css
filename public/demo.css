@@ -5,6 +5,13 @@
  */
 @layer tokens, global, layout, components, utilities;
 
+/* cross-document view transitions (replaces the <meta name="view-transition"> draft) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
 @layer tokens {
   :root {
     /** PRIMITIVES — raw values, no intent */
@@ -181,6 +188,34 @@
   /* ensure text does not go on multiline in horizontal orientation */
   nav li {
     white-space: nowrap;
+  }
+
+  /* Search (sidebar) — results replace the navigation while querying */
+  search input {
+    width: 100%;
+    padding-block: var(--size--2);
+    border: none;
+    border-bottom: 1px solid var(--surface-2);
+    background: transparent;
+    color: var(--text-0);
+    transition: border-color 200ms;
+  }
+  search input::placeholder {
+    color: var(--text-2);
+  }
+  search input:is(:hover, :focus) {
+    border-bottom-color: var(--primary-0);
+  }
+  /* the thicker underline is the focus ring */
+  search input:focus-visible {
+    outline: none;
+    box-shadow: 0 1px 0 var(--primary-0);
+  }
+  nav [data-search-results] {
+    font-size: var(--size--1);
+  }
+  nav [data-search-results] li {
+    white-space: normal;
   }
 
   footer {

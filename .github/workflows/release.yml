@@ -8,16 +8,14 @@ jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6 # version read from packageManager
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-      - name: yarn publish
-        run: |
-          yarn config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-          yarn install
-          yarn build
-          npm publish --access public
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
