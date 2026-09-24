@@ -1,0 +1,11 @@
+---
+pagination:
+  data: collections.all
+  size: 1
+  alias: doc
+permalink: "{{ doc.filePathStem }}.md"
+eleventyExcludeFromCollections: true
+---
+# {{ doc.data.title | safe }}
+
+{{ doc.rawInput | renderContent("njk", { collections: collections }) | safe }}

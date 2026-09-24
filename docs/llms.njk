@@ -1,0 +1,21 @@
+---
+permalink: llms.txt
+eleventyExcludeFromCollections: true
+---
+{%- set nav = collections.all | navigation -%}
+# {{ metadata.title }}
+
+> {{ metadata.description | safe }}
+
+Install with `npm install feo-css`, or load it from a CDN: `<link rel="stylesheet" href="https://unpkg.com/feo-css/feo.min.css">`.
+
+## Docs
+
+{% for key, item in nav %}{% if not item.sub.length %}- [{{ item.title | safe }}]({{ metadata.url }}{{ item.md }})
+{% endif %}{% endfor %}
+{%- for key, item in nav %}{% if item.sub.length %}
+## {{ item.title | safe }}
+
+- [{{ item.title | safe }}]({{ metadata.url }}{{ item.md }}): overview
+{% for sub in item.sub %}- [{{ sub.title | safe }}]({{ metadata.url }}{{ sub.md }})
+{% endfor %}{% endif %}{% endfor %}
