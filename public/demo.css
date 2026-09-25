@@ -5,13 +5,6 @@
  */
 @layer tokens, global, layout, components, utilities;
 
-/* cross-document view transitions (replaces the <meta name="view-transition"> draft) */
-@media (prefers-reduced-motion: no-preference) {
-  @view-transition {
-    navigation: auto;
-  }
-}
-
 @layer tokens {
   :root {
     /** PRIMITIVES — raw values, no intent */
