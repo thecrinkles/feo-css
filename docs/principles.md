@@ -197,7 +197,6 @@ When an element carries both a component and a layout, separate the groups with 
 
 - **Layouts only style their direct children.** Wrap content that should move as one unit in a single element.
 - **`hidden` does not hide an element with a layout class.** The reset's `[hidden]` rule lives in `global`, and the layout's `display` wins from a later layer. Toggle `hidden` on a wrapper, or add `[hidden] { display: none !important; }` to your `global` layer.
-- **`--layout-*` properties inherit.** Every layout declares its own defaults, but `.pile` and `.scroll.--snappable` read `--layout-items` with a fallback, so they pick up the value of an ancestor layout. Set it on them explicitly when it matters.
 - **Global rules have zero specificity.** Any rule in your own `global` layer overrides them without `!important`.
 
 ## Project structure

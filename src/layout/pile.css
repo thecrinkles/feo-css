@@ -9,9 +9,11 @@
  * Useful for overlays, layered content, or creating depth
  */
 .pile {
+  --layout-items: center;
+
   display: grid;
   grid: [pile] minmax(0, 1fr) / [pile] minmax(0, 1fr);
-  place-items: var(--layout-items, center);
+  place-items: var(--layout-items);
 
   & > * {
     grid-area: pile;

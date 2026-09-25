@@ -10,15 +10,19 @@
  * to all elements except the first child
  *
  * Example:
- * <div class="flow">
+ * <div class="flow" style="--layout-gap: 1.5rem">
  *   <p>First element (no margin)</p>
  *   <p>Second element (gets margin-top)</p>
  *   <p>Third element (gets margin-top)</p>
  * </div>
  */
 
-.flow > * + * {
-  --layout-gap: initial;
+.flow {
+  --layout-gap: 1em;
+  /* Copied on the parent, as a child that is itself a layout redeclares --layout-gap */
+  --flow-gap: var(--layout-gap);
 
-  margin-block-start: var(--layout-gap, 1em);
+  & > * + * {
+    margin-block-start: var(--flow-gap);
+  }
 }

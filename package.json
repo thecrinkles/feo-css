@@ -9,8 +9,8 @@
     "format:check": "prettier --check ."
   },
   "name": "feo-css",
-  "version": "6.0.0-beta.16",
-  "main": "feo.css",
+  "version": "6.0.0-beta.17",
+  "main": "feo.min.css",
   "type": "module",
   "description": "A tiny CSS framework",
   "repository": {

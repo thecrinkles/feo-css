@@ -11,6 +11,8 @@
  * Usage: Creates smooth horizontal scrolling with touch-friendly behavior
  */
 .scroll {
+  --layout-items: center;
+
   display: block;
   width: 100%;
   overflow-x: auto;
@@ -19,10 +21,13 @@
 }
 
 .scroll.--snappable {
+  /* Copied on the parent, as a child that is itself a layout redeclares --layout-items */
+  --scroll-snap: var(--layout-items);
+
   scroll-snap-type: x mandatory;
 
   & > * {
-    scroll-snap-align: var(--layout-items, center);
+    scroll-snap-align: var(--scroll-snap);
     /* Prevents scrolling past more than one child */
     scroll-snap-stop: always;
   }
