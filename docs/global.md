@@ -30,7 +30,7 @@ A light, opinionated reset applied before any element styling.
     <tr><td><code>img, picture, svg</code></td><td><code>display: block</code>, fluid up to 100% of their container, with intrinsic height preserved.</td></tr>
     <tr><td><code>input, button, textarea, select</code></td><td>Inherit <code>font-family</code> and <code>font-size</code> instead of the UA defaults.</td></tr>
     <tr><td>Focus handling</td><td>Outlines are removed for mouse users and restored as a <code>1px solid currentColor</code> ring for <code>:focus-visible</code> (keyboard) users.</td></tr>
-    <tr><td><code>[hidden]</code> / <code>[tabindex="-1"]</code></td><td><code>[hidden]</code> is forced to <code>display: none</code>; <code>[tabindex="-1"]</code> loses its outline.</td></tr>
+    <tr><td><code>[hidden]</code> / <code>[tabindex="-1"]</code></td><td><code>[hidden]</code> gets <code>display: none</code> (see <em>Overriding</em> below); <code>[tabindex="-1"]</code> loses its outline.</td></tr>
   </tbody>
 </table>
 </div>
@@ -55,3 +55,13 @@ The `global.css` baseline styles the elements you use on every page.
 ## Overriding
 
 Every rule uses `:where()` (specificity `0,0,0`), so you never need `!important` or high-specificity selectors to change a default — a single class, or a rule in a higher layer, always wins. Set your own values through the [tokens](/tokens) layer to reskin the baseline project-wide.
+
+The same goes for `[hidden]`: a layout class on the element sets `display` from a later layer, so `<div class="flex" hidden>` stays visible. Toggle `hidden` on a wrapper instead, or restore the behavior in your own `global` layer:
+
+```css
+@layer global {
+  [hidden] {
+    display: none !important;
+  }
+}
+```

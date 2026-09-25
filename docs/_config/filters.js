@@ -13,6 +13,7 @@ export function navigation(collection) {
       url: item.page.url,
       md: `${item.page.filePathStem}.md`,
       description: item.description,
+      doc: _c[i], // the page itself, for llms-full.txt
       sub: [],
     };
   }
@@ -26,6 +27,7 @@ export function navigation(collection) {
       url: item.page.url,
       md: `${item.page.filePathStem}.md`,
       key: item.key,
+      doc: _c[i],
     });
   }
   return Object.entries(items).sort((a, b) => Math.sign(a[1].order - b[1].order));

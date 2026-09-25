@@ -11,9 +11,9 @@ Feo.css provides structure (a reset, bare-element defaults, layout primitives, a
 
 ## Start here
 
-Read this before writing any CSS with Feo.css.
+Read these before writing any CSS with Feo.css. The full documentation is also available as a single file: [llms-full.txt]({{ metadata.url }}/llms-full.txt).
 
-{% for key, item in nav %}{% if key == "principles" %}- [{{ item.title | safe }}]({{ metadata.url }}{{ item.md }}): {{ item.description | safe }}
+{% for key, item in nav %}{% if key in ["principles", "layout"] %}- [{{ item.title | safe }}]({{ metadata.url }}{{ item.md }}): {{ item.description | safe }}
 {% endif %}{% endfor %}
 ## Docs
 
