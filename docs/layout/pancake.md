@@ -8,6 +8,8 @@ github: true
 
 The **Pancake** layout creates a three-layer layout pattern where the middle layer fills available space, commonly used for header/content/footer structures. This component uses CSS Grid to create a full-height layout with auto-sized header and footer sections while the content area expands to fill the remaining vertical space.
 
+{% include "svg/pancake.svg" %}
+
 ## Example
 
 ```html

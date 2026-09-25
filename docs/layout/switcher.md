@@ -8,6 +8,8 @@ github: true
 
 The **Switcher** layout creates a multi-column layout that switches from horizontal to vertical when children become too narrow. This component uses a clever flexbox technique to automatically wrap based on child element minimum width, making it perfect for responsive card layouts, form sections, or any content that needs to gracefully transition between horizontal and vertical arrangements based on available space.
 
+{% include "svg/switcher.svg" %}
+
 ## Example
 
 ```html

@@ -1,7 +1,7 @@
-<svg viewBox="0 0 1187 370" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg role="img" aria-label="Diagram of the tiles layout" viewBox="0 0 1187 370" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path
     d="M709 109V94L739.5 128.5L709 163V149H657V109L709 109Z"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-linecap="round"
   />
@@ -63,7 +63,7 @@
     width="186"
     height="148"
     rx="15"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-width="2"
   />
@@ -73,7 +73,7 @@
     width="186"
     height="148"
     rx="15"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-width="2"
   />
@@ -83,7 +83,7 @@
     width="186"
     height="148"
     rx="15"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-width="2"
   />
@@ -119,7 +119,7 @@
     width="186"
     height="148"
     rx="15"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-width="2"
   />
@@ -129,7 +129,7 @@
     width="186"
     height="148"
     rx="15"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-width="2"
   />
@@ -139,7 +139,7 @@
     width="186"
     height="148"
     rx="15"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-width="2"
   />

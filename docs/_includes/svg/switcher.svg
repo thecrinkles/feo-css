@@ -1,4 +1,4 @@
-<svg viewBox="0 0 1076 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg role="img" aria-label="Diagram of the switcher layout" viewBox="0 0 1076 320" fill="none" xmlns="http://www.w3.org/2000/svg">
 <line
     x1="1"
     y1="280"
@@ -27,7 +27,7 @@
   />
 <path
     d="M725 150V135L755.5 169.5L725 204V190H673V150L725 150Z"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-linecap="round"
   />
@@ -41,7 +41,7 @@
     width="248"
     height="48"
     rx="15"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-width="2"
   />
@@ -51,7 +51,7 @@
     width="248"
     height="48"
     rx="15"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-width="2"
   />
@@ -61,7 +61,7 @@
     width="248"
     height="48"
     rx="15"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-width="2"
   />
@@ -71,7 +71,7 @@
     width="186"
     height="248"
     rx="15"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-width="2"
   />
@@ -81,7 +81,7 @@
     width="186"
     height="248"
     rx="15"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-width="2"
   />
@@ -91,7 +91,7 @@
     width="186"
     height="248"
     rx="15"
-    fill="var(--p-neutral-2)"
+    fill="var(--text-2)"
     stroke="var(--text-0)"
     stroke-width="2"
   />

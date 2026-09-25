@@ -6,7 +6,7 @@ key: migration
 description: "Every breaking change from Feo.css 5.x to 6.x, with the replacement for each removed token, class, and block."
 ---
 
-Feo.css 6 is a rewrite around a [layered, token-driven architecture](/principles/). Most breaking changes _remove_ things rather than rename them: the built-in token scale, every class that depended on it, and all blocks are gone. This guide lists every change from 5.x to 6.x, ordered by how likely it is to affect you.
+Feo.css 6 is a rewrite around a [layered, token-driven architecture](/principles/). Most breaking changes _remove_ things rather than rename them: the built-in token scale, every class that depended on it, and all blocks are gone. This guide lists every change and removal from 5.x to 6.x, ordered by how likely it is to affect you.
 
 ## Installing
 
@@ -96,18 +96,19 @@ These changes affect plain HTML, without touching any class. Every [global](/glo
 
 <div class="scroll">
 
-| Element                 | 5.x                                                            | 6.x                                                                              |
-| ----------------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| Colors                  | `color-scheme: light`; `body` color and background from tokens | `color-scheme: light dark`; no colors, so dark-mode users get browser defaults   |
-| `ul`, `ol`              | Bullets removed only with `role="list"`                        | Bullets and padding removed from **all** lists                                   |
-| `a`                     | Every link inherits its color                                  | Only unclassed links inherit their color: a link with a class turns browser blue |
-| `img`, `picture`, `svg` | `max-width: 100%`                                              | `inline-size: 100%`: media fill the width of their container                     |
-| Borders                 | `border: 0` on all elements                                    | Not reset: browser borders on inputs, buttons, and fieldsets return              |
-| `body` text             | Fluid `--token-size-0` (16–21px), `line-height: 1.4`           | `1rem`, `line-height: 1.5`                                                       |
-| `h1` / `h2` / `h3`      | Fluid `2.37rem` / `1.78rem` / `1.33rem`, weight `600`          | `1.953rem` / `1.563rem` / `1.25rem` (1.25 scale), weight `700`                   |
-| `code`, `pre`           | Background, border, and `0.85em` size                          | Monospace font and whitespace handling only                                      |
-| `::selection`           | Inverted text and surface colors                               | Browser default                                                                  |
-| `:target`               | `scroll-margin-block: 5ex`                                     | Browser default                                                                  |
+| Element                 | 5.x                                                            | 6.x                                                                                                                 |
+| ----------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Colors                  | `color-scheme: light`; `body` color and background from tokens | `color-scheme: light dark`; no colors, so dark-mode users get browser defaults                                      |
+| `ul`, `ol`              | Bullets removed only with `role="list"`                        | Bullets and padding removed from **all** lists                                                                      |
+| `a`                     | Every link inherits its color                                  | Only unclassed links inherit their color, with a half-transparent underline: a link with a class turns browser blue |
+| `img`, `picture`, `svg` | `max-width: 100%`                                              | `inline-size: 100%`: media fill the width of their container                                                        |
+| Borders                 | `border: 0` on all elements                                    | Not reset: browser borders on inputs, buttons, and fieldsets return                                                 |
+| `body` text             | Fluid `--token-size-0` (16–21px), `line-height: 1.4`           | `1rem`, `line-height: 1.5`                                                                                          |
+| `h1` / `h2` / `h3`      | Fluid `2.37rem` / `1.78rem` / `1.33rem`, weight `600`          | `1.953rem` / `1.563rem` / `1.25rem` (1.25 scale), weight `700`                                                      |
+| `code`, `pre`           | Background, border, and `0.85em` size                          | Monospace font and whitespace handling only                                                                         |
+| `::selection`           | Inverted text and surface colors                               | Browser default                                                                                                     |
+| `:target`               | `scroll-margin-block: 5ex`                                     | Browser default                                                                                                     |
+| `text-size-adjust`      | `none`, which blocks text scaling on mobile                    | `100%`                                                                                                              |
 
 </div>
 
@@ -130,8 +131,6 @@ To restore the 5.x look, add the rules you want back to your own `global` layer:
 }
 ```
 
-New in 6.x: `hanging-punctuation`, `interpolate-size: allow-keywords`, `text-size-adjust: 100%` (5.x blocked text scaling with `none`), a half-transparent underline on unclassed links, a scroll lock while a `<dialog>` is open, and a pointer cursor on `[aria-controls]`.
-
 ## Layouts
 
 ### `--layout-align` is now `--layout-items`
@@ -151,12 +150,11 @@ Three layouts no longer center their children on the cross axis. Add `.--center`
 
 <div class="scroll">
 
-| Layout     | 5.x default | 6.x default |
-| ---------- | ----------- | ----------- |
-| `.flex`    | `center`    | `stretch`   |
-| `.repel`   | `center`    | `stretch`   |
-| `.equal`   | `center`    | `stretch`   |
-| `.cluster` | `center`    | `center`    |
+| Layout   | 5.x default | 6.x default |
+| -------- | ----------- | ----------- |
+| `.flex`  | `center`    | `stretch`   |
+| `.repel` | `center`    | `stretch`   |
+| `.equal` | `center`    | `stretch`   |
 
 </div>
 
@@ -186,17 +184,10 @@ These classes read the 5.x tokens and are gone with them. Set the custom propert
 ### Per-layout changes
 
 - **`.fifty`** is removed. Use [`.tiles`](/layout/tiles/) with `.--fit` and the same `--layout-threshold`: two children wrap at the same width. Use [`.switcher`](/layout/switcher/) if all children should stack at once.
-- **`.pile`** no longer reads `--layout-ratio`. Add the new [`.ratio`](/layout/aspect-ratio/) layout to the same element (`class="pile ratio --ratio-16x9"`). Its `place-items` now reads `--layout-items` (default `center`).
+- **`.pile`** no longer reads `--layout-ratio`. Add the [`.ratio`](/layout/aspect-ratio/) layout to the same element (`class="pile ratio --ratio-16x9"`). Its `place-items` now reads `--layout-items` (default `center`).
 - **`.tiles`** defaults to `auto-fill` instead of `auto-fit`, so a few tiles no longer stretch across the full row. Add `.--fit` for the 5.x behavior.
 - **`.grid`** and **`.pancake`** tracks use `minmax(0, 1fr)`: long content no longer stretches a column or row beyond its share.
-- **`.grow`** is removed. Use `style="flex-grow: 1"` or your own utility. The `.self-*` classes remain, now documented under [Layout Items](/utilities/layout-items/).
-- **`.center`**, **`.cluster`**, **`.equal`**, **`.repel`**, **`.sidebar`**, and **`.switcher`** keep the rest of their 5.x API.
-
-### New layout features
-
-- `--layout-justify` sets `justify-content`, with `.--justify-start`, `.--justify-end`, `.--justify-center`, `.--justify-between`, and `.--justify-around`.
-- [`.flow`](/layout/flow/), [`.scroll`](/layout/scroll/) (with `.--snappable`), and [`.ratio`](/layout/aspect-ratio/) (with `.--ratio-1x1`, `.--ratio-16x9`, `.--ratio-2x1`, and `.--ratio-3x2`).
-- `.flex.--wrap`, `.switcher.--fixed`, and `.switcher.counted`.
+- **`.grow`** is removed. Use `style="flex-grow: 1"` or your own utility.
 
 ## Blocks are removed
 
@@ -214,27 +205,24 @@ All 5.x blocks are gone. The form and table blocks styled **bare elements**, so 
 
 </div>
 
-To keep one, copy its CSS from the [5.4.4 source](https://github.com/thecrinkles/feo-css/tree/v5.4.4/src/blocks) into your `components` layer and replace the `--token-*` references with your own tokens. The only component 6.x ships is [`.hover-group`](/components/hover-group/), which moved there from the utilities.
+To keep one, copy its CSS from the [5.4.4 source](https://github.com/thecrinkles/feo-css/tree/v5.4.4/src/blocks) into your `components` layer and replace the `--token-*` references with your own tokens.
 
 ## Utilities
 
 <div class="scroll">
 
-| 5.x                                                                                                                                       | 6.x                                                                                               |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `.m-*`, `.mt-*`, `.mr-*`, `.mb-*`, `.ml-*`                                                                                                | Removed. Let a layout own the spacing (`--layout-gap`, `.flow`).                                  |
-| `.size-000` … `.size-5`                                                                                                                   | Removed. Use your own tokens.                                                                     |
-| `.maxw-000` … `.maxw-5`                                                                                                                   | Removed. Use [`.center`](/layout/center/) with `--layout-threshold`.                              |
-| `.bold`, `.regular`                                                                                                                       | Removed.                                                                                          |
-| `.scroll-container`                                                                                                                       | Removed. [`.scroll`](/layout/scroll/) scrolls horizontally, so it is no replacement.              |
-| `.contrast`                                                                                                                               | Removed.                                                                                          |
-| `@keyframes` `wiggle`, `fade-in`, `slide-up-1`, `slide-up-2`, `slide-down-1`                                                              | Removed.                                                                                          |
-| `.hover-group`                                                                                                                            | Now a component. `--opacity` is renamed to `--hover-opacity`; `--hover-grow` is new.              |
-| `.italic`, `.text-start`, `.text-center`, `.text-end`, `.read-more`, `.click-area`, `.counted`, `.indexed`, `.visually-hidden`, `.self-*` | Unchanged. `.counted` and `.indexed` use `sibling-count()` and `sibling-index()` where supported. |
+| 5.x                                                                          | 6.x                                                                                           |
+| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `.m-*`, `.mt-*`, `.mr-*`, `.mb-*`, `.ml-*`                                   | Removed. Let a layout own the spacing (`--layout-gap`, `.flow`).                              |
+| `.size-000` … `.size-5`                                                      | Removed. Use your own tokens.                                                                 |
+| `.maxw-000` … `.maxw-5`                                                      | Removed. Use [`.center`](/layout/center/) with `--layout-threshold`.                          |
+| `.bold`, `.regular`                                                          | Removed.                                                                                      |
+| `.scroll-container`                                                          | Removed. [`.scroll`](/layout/scroll/) scrolls horizontally, so it is no replacement.          |
+| `.contrast`                                                                  | Removed.                                                                                      |
+| `@keyframes` `wiggle`, `fade-in`, `slide-up-1`, `slide-up-2`, `slide-down-1` | Removed.                                                                                      |
+| `.hover-group`                                                               | Moved to [components](/components/hover-group/). `--opacity` is renamed to `--hover-opacity`. |
 
 </div>
-
-New utilities: `.sr-only` (an alias of `.visually-hidden`), `.uppercase`, `.lowercase`, `.capitalize`, `.fl`, `.ellipsis`, [`.container`](/utilities/container/), [`.no-print`](/utilities/no-print/), and [`.z-indexed`](/utilities/z-index/).
 
 ## Checklist
 

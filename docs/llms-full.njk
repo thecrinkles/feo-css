@@ -1,0 +1,13 @@
+---
+permalink: llms-full.txt
+eleventyExcludeFromCollections: true
+---
+{%- set nav = collections.all | navigation -%}
+{%- asyncEach key, item in nav %}
+{%- set doc = item.doc %}
+{% include "partials/markdown.njk" %}
+{%- asyncEach sub in item.sub %}
+{%- set doc = sub.doc %}
+{% include "partials/markdown.njk" %}
+{%- endeach %}
+{%- endeach %}
