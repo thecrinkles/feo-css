@@ -71,6 +71,7 @@
 
   function resultItem(d) {
     const li = document.createElement("li");
+    li.className = "fl"; // feo's first-letter utility: "layout: Center" -> "Layout: Center"
     const a = document.createElement("a");
     a.href = d.url;
     a.textContent = d.parent ? `${d.parent}: ${d.title}` : d.title;
