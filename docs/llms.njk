@@ -7,11 +7,17 @@ eleventyExcludeFromCollections: true
 
 > {{ metadata.description | safe }}
 
-Install with `npm install feo-css`, or load it from a CDN: `<link rel="stylesheet" href="https://unpkg.com/feo-css/feo.min.css">`.
+Feo.css provides structure (a reset, bare-element defaults, layout primitives, and utilities) in cascade layers, and leaves tokens, colors, and components to your project. Install with `npm install feo-css@beta`, or load it from a CDN: `<link rel="stylesheet" href="https://unpkg.com/feo-css@beta/feo.min.css">`.
 
+## Start here
+
+Read this before writing any CSS with Feo.css.
+
+{% for key, item in nav %}{% if key == "principles" %}- [{{ item.title | safe }}]({{ metadata.url }}{{ item.md }}): {{ item.description | safe }}
+{% endif %}{% endfor %}
 ## Docs
 
-{% for key, item in nav %}{% if not item.sub.length %}- [{{ item.title | safe }}]({{ metadata.url }}{{ item.md }})
+{% for key, item in nav %}{% if not item.sub.length and key != "principles" %}- [{{ item.title | safe }}]({{ metadata.url }}{{ item.md }}){% if item.description %}: {{ item.description | safe }}{% endif %}
 {% endif %}{% endfor %}
 {%- for key, item in nav %}{% if item.sub.length %}
 ## {{ item.title | safe }}

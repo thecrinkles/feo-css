@@ -12,6 +12,7 @@ export function navigation(collection) {
       order: item.order,
       url: item.page.url,
       md: `${item.page.filePathStem}.md`,
+      description: item.description,
       sub: [],
     };
   }
