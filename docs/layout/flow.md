@@ -34,7 +34,7 @@ The **Flow** layout creates consistent vertical spacing between consecutive sibl
     <tr>
       <td><code>--layout-gap</code></td>
       <td><code>1em</code></td>
-      <td>Vertical spacing between elements</td>
+      <td>Vertical spacing between elements. Set it on the <code>.flow</code> element; children that are layouts themselves keep this spacing.</td>
     </tr>
   </tbody>
 </table>
