@@ -8,6 +8,8 @@ github: true
 
 The **Sidebar** layout creates a responsive 2-column layout with one fixed-width column and one flexible column. This component automatically switches from horizontal to vertical layout based on content constraints, making it perfect for main content areas with sidebars that need to gracefully collapse on smaller screens or when space becomes limited.
 
+{% include "svg/sidebar.svg" %}
+
 ## Example
 
 ```html

@@ -8,6 +8,8 @@ github: true
 
 The **Center** layout horizontally centers layout elements with a configurable maximum width. This component is designed to create centered containers that won't exceed a specified threshold width, making it ideal for content areas that need to remain readable and well-proportioned across different screen sizes.
 
+{% include "svg/center.svg" %}
+
 ## Example
 
 ```html

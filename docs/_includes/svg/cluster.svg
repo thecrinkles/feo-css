@@ -1,4 +1,4 @@
-<svg  viewBox="0 0 794 182" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg role="img" aria-label="Diagram of the cluster layout"  viewBox="0 0 794 182" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="1" y="1" width="188" height="48" rx="15" fill="var(--surface-2)" stroke="var(--text-0)" stroke-width="2"/>
 <rect x="434" y="67" width="188" height="48" rx="15" fill="var(--surface-2)" stroke="var(--text-0)" stroke-width="2"/>
 <rect x="1" y="67" width="268" height="48" rx="15" fill="var(--surface-2)" stroke="var(--text-0)" stroke-width="2"/>

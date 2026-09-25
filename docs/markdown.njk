@@ -6,6 +6,4 @@ pagination:
 permalink: "{{ doc.filePathStem }}.md"
 eleventyExcludeFromCollections: true
 ---
-# {{ doc.data.title | safe }}
-
-{{ doc.rawInput | renderContent("njk", { collections: collections }) | safe }}
+{% include "partials/markdown.njk" %}

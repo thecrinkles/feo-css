@@ -1,0 +1,4 @@
+# {{ doc.data.title | safe }}
+
+{#- layout diagrams are inline SVG: path data is noise for LLMs #}
+{{ doc.rawInput | renderContent("njk", { collections: collections }) | replace(r/<svg[\s\S]*?<\/svg>\s*/g, "") | safe }}

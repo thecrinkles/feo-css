@@ -8,6 +8,8 @@ github: true
 
 The **Repel** layout distributes items with space-between, pushing them to opposite ends of the container. This component creates a layout where items are pushed apart with equal space between them, making it ideal for navigation bars, toolbars, or any interface where you need to separate content groups while maintaining alignment.
 
+{% include "svg/repel.svg" %}
+
 ## Example
 
 ```html

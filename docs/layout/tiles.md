@@ -8,6 +8,8 @@ github: true
 
 The **Tiles** layout creates an auto-responsive grid system that determines column count based on minimum tile width. This component creates as many columns as can fit while respecting the minimum width constraint, making it perfect for image galleries, product grids, or any content that needs to automatically adjust its layout based on available space and content requirements.
 
+{% include "svg/tiles.svg" %}
+
 ## Example
 
 ```html

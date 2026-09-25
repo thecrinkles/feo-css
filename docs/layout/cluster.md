@@ -8,6 +8,8 @@ github: true
 
 The **Cluster** layout groups items that automatically wrap to create clusters, such as tag clouds, button groups, or navigation elements. This component uses flexbox with wrapping enabled to create flexible groupings of related items that flow naturally based on available space.
 
+{% include "svg/cluster.svg" %}
+
 ## Example
 
 ```html
