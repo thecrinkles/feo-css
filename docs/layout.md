@@ -51,6 +51,8 @@ Alignment, direction, column count, and aspect ratio are also available as class
 
 </div>
 
+Centered and end alignment is [safe](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/align-items#safe) where the browser supports it: `.--center`, `.--end`, `.--justify-center`, `.--justify-end`, and the centered defaults of cluster and pile fall back to `start` when items would otherwise overflow out of reach. Scroll keeps the plain values, as snapping has no safe variant.
+
 ## Choosing a layout
 
 <div class="scroll">
