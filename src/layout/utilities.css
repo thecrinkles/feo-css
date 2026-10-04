@@ -45,6 +45,23 @@
 .--justify-around {
   --layout-justify: space-around;
 }
+/* SAFE ALIGNMENT - Falls back to start when centered or end-aligned items would overflow out of reach
+ * Behind @supports, as an unparsable value through var() resets alignment instead of falling back to center
+ * Not on .scroll, as scroll-snap-align has no safe keyword */
+@supports (align-items: safe center) {
+  .--center:not(.scroll) {
+    --layout-items: safe center;
+  }
+  .--end:not(.scroll) {
+    --layout-items: safe end;
+  }
+  .--justify-center {
+    --layout-justify: safe center;
+  }
+  .--justify-end {
+    --layout-justify: safe end;
+  }
+}
 
 /* GRID UTILITIES - Controls --layout-amount */
 .--amount-2 {

@@ -3,7 +3,7 @@
  * Stacks elements on top of each other in the same grid area (layered depth effect)
  *
  * Custom Properties:
- * --layout-items: Controls positioning of stacked items (default: center)
+ * --layout-items: Controls positioning of stacked items (default: center, safe center where supported)
  *
  * Usage: All children are placed in the same grid cell, creating a pile effect
  * Useful for overlays, layered content, or creating depth
@@ -14,6 +14,10 @@
   display: grid;
   grid: [pile] minmax(0, 1fr) / [pile] minmax(0, 1fr);
   place-items: var(--layout-items);
+
+  @supports (align-items: safe center) {
+    --layout-items: safe center;
+  }
 
   & > * {
     grid-area: pile;

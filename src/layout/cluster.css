@@ -4,7 +4,7 @@
  *
  * Custom Properties:
  * --layout-gap: Gap between child elements (default: 0)
- * --layout-items: Align items on cross axis (default: center)
+ * --layout-items: Align items on cross axis (default: center, safe center where supported)
  * --layout-justify: Justify content on main axis (default: start)
  */
 .cluster {
@@ -17,4 +17,8 @@
   gap: var(--layout-gap);
   align-items: var(--layout-items);
   justify-content: var(--layout-justify);
+
+  @supports (align-items: safe center) {
+    --layout-items: safe center;
+  }
 }

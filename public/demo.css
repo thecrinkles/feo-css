@@ -176,7 +176,7 @@
     font-weight: bold;
   }
   nav svg {
-    height: 2.5rem;
+    height: 2rem;
   }
   /* ensure text does not go on multiline in horizontal orientation */
   nav li {
